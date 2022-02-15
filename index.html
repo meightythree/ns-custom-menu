@@ -2,36 +2,10 @@
 <html>
   <head>
     <style type="text/css">
-      .context-menu {
-        position: absolute;
-        text-align: center;
-        flex-direction: row;
-        background: rgba(255, 255, 255, 0.88);
-        box-shadow: 0px 0px 40px rgba(168, 178, 184, 0.24);
-        backdrop-filter: blur(4px);
-        border-radius: 1px;
-      }
-
-      .context-menu ul {
-        padding: 0px;
-        margin: 0px;
-        min-width: 150px;
-        list-style: none;
-        display: flex;
-        justify-content: space-around;
-      }
-
-      .context-menu ul li {
+      #contextMenu div {
         flex-basis: 100%;
-        padding: 15px;
-      }
-
-      .context-menu ul li div {
-        padding-top: 15px;
-      }
-
-      .context-menu ul li:hover {
-        background: darkgray;
+        padding: 15px 5px 5px;
+        color: #697881;
       }
     </style>
   </head>
@@ -39,217 +13,119 @@
   <body>
     <h1 style="text-align: center">Custom menu</h1>
 
-    <div id="contextMenu" class="context-menu" style="display: none">
-      <ul>
-        <li>
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M19.3852 4.09441C20.1002 3.53835 21.1173 3.60167 21.7577 4.24212V4.24212C22.3982 4.88257 22.4615 5.89969 21.9055 6.61464L15.0314 15.4527L10.5471 10.9685L19.3852 4.09441Z"
-              stroke="#697881"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M10.5474 10.9683L10.9009 10.6147L10.073 10.8101L10.5474 10.9683ZM15.0316 15.4525L15.1897 15.9268L15.3852 15.099L15.0316 15.4525ZM13.35 16.013L12.9965 16.3666L13.215 16.5851L13.5081 16.4874L13.35 16.013ZM9.98683 12.6499L9.51249 12.4917L9.41477 12.7849L9.63328 13.0034L9.98683 12.6499ZM10.1938 11.3218L14.6781 15.8061L15.3852 15.099L10.9009 10.6147L10.1938 11.3218ZM14.8735 14.9782L13.1919 15.5387L13.5081 16.4874L15.1897 15.9268L14.8735 14.9782ZM13.7036 15.6595L10.3404 12.2963L9.63328 13.0034L12.9965 16.3666L13.7036 15.6595ZM10.4612 12.808L11.0217 11.1264L10.073 10.8101L9.51249 12.4917L10.4612 12.808Z"
-              fill="#697881"
-            />
-            <path
-              d="M9.98682 12.6499L10.3404 12.2963L9.51247 12.4918L9.98682 12.6499ZM13.35 16.0131L13.5081 16.4874L13.7036 15.6595L13.35 16.0131ZM9.63326 13.0035L12.9964 16.3666L13.7036 15.6595L10.3404 12.2963L9.63326 13.0035ZM9.59077 15.4192L10.4612 12.808L9.51247 12.4918L8.64209 15.1029L9.59077 15.4192ZM10.897 17.3578L13.5081 16.4874L13.1919 15.5387L10.5807 16.4091L10.897 17.3578ZM9.07273 16.9272C9.55018 17.4046 10.2564 17.5713 10.897 17.3578L10.5807 16.4091C10.2995 16.5029 9.98945 16.4297 9.77984 16.2201L9.07273 16.9272ZM8.64209 15.1029C8.42857 15.7435 8.59529 16.4497 9.07273 16.9272L9.77984 16.2201C9.57023 16.0104 9.49703 15.7004 9.59077 15.4192L8.64209 15.1029Z"
-              fill="#697881"
-            />
-            <path
-              d="M4.10162 19.0416C4.10162 14.154 4.10162 11.5052 4.10162 6.10162C9.04059 6.10162 12.2423 6.10162 16.4885 6.10162M4.10162 19.0416L6.89282 21.8984L19.8984 21.8984L19.8984 9.37877M4.10162 19.0416L6.89282 19.0416L6.89282 21.5618"
-              stroke="#697881"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-
-          <div>Kiemelés, jegyzet</div>
-        </li>
-        <li>
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M14.5 9C14.5 9.27614 14.7239 9.5 15 9.5C15.2761 9.5 15.5 9.27614 15.5 9H14.5ZM3.2 12.8477C3.47614 12.8477 3.7 12.6238 3.7 12.3477C3.7 12.0715 3.47614 11.8477 3.2 11.8477V12.8477ZM7.50028 12.7314C7.71229 12.5545 7.74071 12.2392 7.56377 12.0272C7.38683 11.8152 7.07152 11.7867 6.85952 11.9637L7.50028 12.7314ZM5.2 14L4.87962 14.3839C5.06514 14.5387 5.33486 14.5387 5.52038 14.3839L5.2 14ZM3.54048 11.9637C3.32848 11.7867 3.01317 11.8152 2.83623 12.0272C2.65929 12.2392 2.68771 12.5545 2.89972 12.7314L3.54048 11.9637ZM2 3.5H14V2.5H2V3.5ZM1.5 11.3477V4H0.5V11.3477H1.5ZM14.5 4V9H15.5V4H14.5ZM3.2 11.8477H1.99996V12.8477H3.2V11.8477ZM0.5 11.3477C0.5 12.1761 1.17151 12.8477 1.99996 12.8477V11.8477C1.72384 11.8477 1.5 11.6238 1.5 11.3477H0.5ZM14 3.5C14.2761 3.5 14.5 3.72386 14.5 4H15.5C15.5 3.17157 14.8284 2.5 14 2.5V3.5ZM2 2.5C1.17157 2.5 0.5 3.17157 0.5 4H1.5C1.5 3.72386 1.72386 3.5 2 3.5V2.5ZM6.85952 11.9637L4.87962 13.6161L5.52038 14.3839L7.50028 12.7314L6.85952 11.9637ZM5.52038 13.6161L3.54048 11.9637L2.89972 12.7314L4.87962 14.3839L5.52038 13.6161Z"
-              fill="black"
-            />
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M22 11C22.5523 11 23 11.4477 23 12V19.3477C23 19.8999 22.5523 20.3477 22 20.3477H20.7798L18.8 22L16.8202 20.3477H10C9.44772 20.3477 9 19.8999 9 19.3477V12C9 11.4477 9.44772 11 10 11H22Z"
-              fill="black"
-            />
-            <path
-              d="M20.7798 20.3477L20.4594 19.9638C20.5493 19.8888 20.6627 19.8477 20.7798 19.8477V20.3477ZM18.8 22L19.1204 22.3839C18.9349 22.5387 18.6651 22.5387 18.4796 22.3839L18.8 22ZM16.8202 20.3477V19.8477C16.9373 19.8477 17.0507 19.8888 17.1406 19.9638L16.8202 20.3477ZM22.5 12C22.5 11.7239 22.2761 11.5 22 11.5V10.5C22.8284 10.5 23.5 11.1716 23.5 12H22.5ZM22.5 19.3477V12H23.5V19.3477H22.5ZM22 19.8477C22.2761 19.8477 22.5 19.6238 22.5 19.3477H23.5C23.5 20.1761 22.8284 20.8477 22 20.8477V19.8477ZM20.7798 19.8477H22V20.8477H20.7798V19.8477ZM18.4796 21.6161L20.4594 19.9638L21.1002 20.7315L19.1204 22.3839L18.4796 21.6161ZM17.1406 19.9638L19.1204 21.6161L18.4796 22.3839L16.4998 20.7315L17.1406 19.9638ZM10 19.8477H16.8202V20.8477H10V19.8477ZM9.5 19.3477C9.5 19.6238 9.72386 19.8477 10 19.8477V20.8477C9.17157 20.8477 8.5 20.1761 8.5 19.3477H9.5ZM9.5 12V19.3477H8.5V12H9.5ZM10 11.5C9.72386 11.5 9.5 11.7239 9.5 12H8.5C8.5 11.1716 9.17157 10.5 10 10.5V11.5ZM22 11.5H10V10.5H22V11.5Z"
-              fill="black"
-            />
-            <path
-              d="M14 18L16 13L18 18"
-              stroke="white"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M14.8569 16.0554L17.1426 16.0554"
-              stroke="white"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M5 8.38625C5.70317 9.27404 7.04325 9.46098 7.99315 8.80379C8.94305 8.14659 9.14306 6.89414 8.4399 6.00635"
-              stroke="black"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M10.9999 8.38625C10.2967 9.27404 8.95666 9.46098 8.00676 8.80379C7.05686 8.14659 6.85684 6.89414 7.56001 6.00635"
-              stroke="black"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M5.99995 6L9.99995 6"
-              stroke="black"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M7.99995 6V4.5"
-              stroke="black"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <div>Fordítás</div>
-        </li>
-        <li>
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M2 5L8.21275 17.9164C8.59248 18.7058 9.73172 18.6601 10.0469 17.8428L15 5"
-              stroke="#697881"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M22 5L16.3562 17.7113C15.9897 18.5368 14.8031 18.4918 14.5002 17.6409L10 5"
-              stroke="#697881"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M1 5H3"
-              stroke="#697881"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M14 5L16 5"
-              stroke="#697881"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M9 5H11"
-              stroke="#697881"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M21 5L23 5"
-              stroke="#697881"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <div>Wikipedia</div>
-        </li>
-        <li>
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle
-              cx="19"
-              cy="5"
-              r="4"
-              stroke="#282828"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <circle
-              cx="6"
-              cy="12"
-              r="4"
-              stroke="#282828"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <circle
-              cx="19"
-              cy="19"
-              r="4"
-              stroke="#282828"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M15 17L10 14"
-              stroke="#282828"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M10 10L15 7"
-              stroke="#282828"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <div>Megosztás</div>
-        </li>
-      </ul>
+    <!-- <div
+      id="contextMenu"
+      style="
+        display: flex;
+        position: absolute;
+        text-align: center;
+        flex-direction: row;
+        background: rgba(255, 255, 255, 0.88);
+        box-shadow: 0px 0px 40px rgba(168, 178, 184, 0.24);
+        backdrop-filter: blur(4px);
+        border-radius: 1px;
+      "
+    >
+      <div>
+        <img
+          height="24"
+          width="24"
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAP/SURBVHgB7VlNUhpBFH7dM4WmsvEI5AQxJ4icQD2BuLBK3WRcJGoqlWFSlUTciIsUmCwkJ1BPoDlByA3IDVilhJJ+ea9nBgcCQ2N6kAVfadHT87p4r9/3froBmGOOOeZ4TAiYYWzv+ysCxCoKaAmFv6rHweWgzEwaQIrnJcgLUnx54FUTURVq5aAZT7gwY9h546+BlOeIsASsMGCd58kTRfrICyHP6bMQy8+UB3YPggoCvOIxKVzP3Xb3KpWgxc/sFVL+mob5yAs3PD8THoiUOyflV/hZIXhn5fenSRmmzc5h6RJQeCDES5q64flUA3YOP3iAuApZg7keUYbGxbMj/8cwMaJVa5Ay6R4IlV+BrIH8hzf0fZu1o/sATcLz/KV2GAckJhrxvBGFlARPIjTAEoSk3VZQoh0NswxipVYu7aWt6Sw6JySYp2HzrOxfxfNGBrDy1c/D3TopmO+Ask7DPNGFA9SrHpW+p63Z3Q9K5KEiy6NSheS7qQZxnCJjvrMyyZw+DFtv/WVU4EeP3qC8hCmBUyQpf8HKc4pcuFUvxinP3nIVrQEdIyViwT+eytwDJilyFHQ15rxPAV47KgXDZDI1gN0vwh3Mw5gUOQjN+7CVaHJ2GiWXGYW4hpD7f0K0g1w9TRPB9oFfJOU172ltM41q1j2g8/WirNCubegJgxSZRES5E64NJrDugc4T3a9s6BRJlKlOoDwbr/sdDnRhVnesGsC7d1+cdM6eqHaExSqMFwQVmKyxagA6Mtk36e5RFy4D9BUrihfK/S2TdVYNcBCKekDUiShgZIQuVmJ0sUqDNQOS9BEKnuVyqmBihEmxSoM1A5L04d3s3ErPxAguVjCmWKXBmgExfXgXNY8NjDAtVmmwUgd69KHMQzk/IE5fuSCvKZWzEZBbVIVOh55JJjKiQEau8HtefyfV+rdP5rxPwooHYvqgQH3tQco07oQqpHlCFysIPcby8EBYMaBHHxS9e5thRiRye1631FylH8D7JOx4IOzvwXWdvp18+oe4DUIrqNMkhtlGP1PQLrTxv5TX3wl20ATOJF1V2nrtnzp8ZBRioy3EGlm3FAvpcy/dJjiOW//y8d1vsAArBlAQ7rnIQYpF15HF3gvMRukkrBjAfKfM8kJIQV2kWOYWGDJUOglr7XRU/tdhypjamTgrmHrgcucg6OsOu0qdfj2mg/ojI90DQoRKh2kyn/yXUmR/5WiAVAMWct3N3skIoz4d1IN6lqyQakAlCFq9FkDwMU/fzc8UxgZxnxFhH3MCMwTjHzg8n24b2uE1iZ5AbFC+Nz6wTwrpuM/pTF2JzgmFUXIT/UKT/JUEpoRxBkxUyLhYhb28mFosJDvcOebIAH8BMj4LaMw41ikAAAAASUVORK5CYII="
+        />
+        <div>Kiemelés, jegyzet</div>
+      </div>
+      <div>
+        <img
+          height="24"
+          width="24"
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAPNSURBVHgB7VjNTttAEJ5xkJLe6Bu4T9BU6qGHSoQnAJ6AcEAlXEgPVUIP2O4FUA9NT6HqAfcJ4A1IpR4rAU/A9g1yg1Tg7cx6N3VTQhzbcUDkk+z9sRPP7M58M7MAM8www4MGms5mw3OlBVsgYR4mCYQuBNJv77tvIQMU+LbZ9FoSoUHdEkweJUB89fJ1BX7+6HyHlJjjGwm/SisPUgbPDvY9ARPERsOxEa0LlFinoQcpYam7Nptxha81vQu+xvlN/xuYjanOQTrYMGVY8MAx1g5oc7FvmZeRoWjvOc8gJzyuHTArW9v+cESUtRxIqCPKeQR0JUj/YM9dg5yRzImlNAwiaPBUx0MbpoBYJlSvO/PM32ZMqy24pdUvW1BY0NNi2PuTRCwFeiXrlILPSV8oKb9xo02nqvqIPrfr752yeh+sU8gBcZ2YQ76KoLUG2T/iqsppDCR0pZRVYqOTuUAJbtOkDzkglgLkvFVaaVcNUC7TyldV9A6VEBxV1RxAhef43RHJmoCIyaWB8j7D4yQo3vUy23bvifUcQocVxcvgvNXyurVtb2FwDvIEKzAQjB4M0uZCfUyrnsgkEut6wpm48Azle1jfaLoOD80OCLpsXsUAgo55l1Lfzm3/wb5wVYSyeT7NeiLcAcTPWhCH+d5cTJks7OAfmLjwpuEtqcmE9UQSDNYTSoH27k5LQrBGFHlMFNjhCxQ9ymUW1gQwaitoGZ4HgRCcQwokKYgG0Xfigz3Pp8Y3Y71VJxAGMNoN95htj02F2uPi5c1aGrrkxQCdP3F/mLmOwlAn5q0qFoMXLKz6ECqbAxWkdndW0nK9hYVV06cFciAh7mShlud1WVgVhYm+OH2mlDl1Ic67a3Iojcqgr8VFrDighU4teB9IKQeo3fQpBbGpW7kq4VaSb0ylIqNMVZkMZ7BEvUpoTYtjI3cFos5LW+CT/R+qPtGifjYWclcg6rwQKmKbQRJnzlWBqPMGEstWoWDzdW0R24UY25kzS+ZiIeK8X/adaBD8RQGtAwmcOdcdiDrv4LOkzjwNFhLtXee/U2kdicU/pWoM5GpCo07skpzoPa6TuTsg4JZ6YhyUenA2LL9af+eUC5ZOn9Faln+/mZECXE9I+UnVE5AsMeuVQBDNLkZrCnWIULKOAEL2YvQLdwQ3bDLCRtOpErssyQRlpc6H+BLXN8HK14/eWTSdV0c1Up7p1wWzmCGCzBRIg7pDK/27cMgHxjxmSqXCyRwQCBovDqv27oUCBlyo83FlfyJG4XSvFGDQ0X1d+RPVIFnUHjPMMAJ/AOE/tpeHVV6yAAAAAElFTkSuQmCC"
+        />
+        <div>Fordítás</div>
+      </div>
+      <div>
+        <img
+          height="24"
+          width="24"
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAOsSURBVHgB7Vg7bttAEJ1ZIbDc6QjKDVwkXYLIJ7BzArN03FiuoqQhmSKRkYapbMCF5Rs4JzAFJIALA/ENrNxAna0g4mZ2ySWo5W9XTGEDfIAkitzPm523M7MEaNGiRYsWLZ4wUHy9G/l39NPXns1Oxu5zgzGM+687T1U/Bk8cmP2zP3IdBHZOlyFZtw2W2B95LgJ6wHlwcuwdFbU5GH0658Ad+ninY883HFp44Yp+BsTYOfniXqj7Kx44HfsTajAXDfffuwOwBefT+AKdosc0Zl+QT9pegCEOPrpbghN9Zhv30ffsM5bnwANJAZkLljg99kP6CWkReoULgJIEkBEhtZ2BKaLOoeoXBP48+yhnQHeDf2viBTFJzDWedGUyZPIeIk7AEJrXcpLLGRD4/ryJF+QCxLMNhkO3p+4LGXAOQgqzrIbrwLAjOZARkyKvsVISa3pBLAAkMrrfYHvpg4wMTMcaum6P2g/E9XKpFmYVrIxEEy9EDC7l4Ai76p4iUiSDMjwsZH8hofDsq39b1KY0DzTxwuaz6EL1FTIS4VkQIfK3NpuXQrpcvKo9U2pAEy9IGXGQKyZkRERiKTEMTMdIja7ZM5WZuIkXOI+kVDoADkASPqNoato/NRrBq2pXaUDWC+SGPbBAt0seIOM5yshTGkWKIEInlCQuHbW1kAqLVCI4ycBGiKMRn6j/NrE/EzpziSvXFgyIEPlJwsIyIiWlBYc56dhIPnWJS4dRNRrxpRwIOe5mk1MdkHd24ouS0qKIUE3iyrUHA8iBEC8FkYcuHpr0WVlJkBLcMelXl7h0GJ8HeLSM9wLHoZEXksKNMEtuOHVdVOisSlw6jA3IVpomXlBJKAmDoYmMTBKXDqsTmYrtdV5I6vc+JEkorX8qQrFp4tJhZYCxF7TCLQ3FFUHANHHpsD4Tm3hBL9yyFepik+U2s03i0mFtQJ0XshsxGwZVhUrWOTkSFokr1xfWQJUXlBT0jSgr1BgrBx3bxKVjLQPKvJBKgTKvLoVURhBXqCkBy8QF/8MAOaHyQia+p2SQXxZJATsQxO3yBx2b0LkyJjTAwQf/lzjnIgc/gmhC5wbx7qYvklhR7SOOiIs/7I5Y98jKAEmDHOBQ7pexZ/0eSqDRm7mIRzI8UsnsEnn1+m9WVrjFMsJY58iHgrwouZeMH8Ga6EAD3PyY3r549eY3yWhL+JJW8pq09fbm53Re3ufq+uXr7ZDaiTbXf4n82WezsqFFixYtWrRo8djwDw6OBWd58xvdAAAAAElFTkSuQmCC"
+        />
+        <div>Wikipedia</div>
+      </div>
+      <div>
+        <img
+          height="24"
+          width="24"
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAOvSURBVHgB7VhNUttQDJZsprBMT9AcAW6QnCDcgGTRKdBFk0UnFDrYniktaRdNFyV0WJDeAE5AOAH0BHVvwLLJJE+VnmOwU+ffsZsO30z88/4s6UlPXwSw5ED4R7BdtXKAuIWAOX7NShsS3CqkW1R02fjoXETNS10BFjyLaJzzY27MUJdI5U9rjhtsNCBFPN+31tEwbkCER7gjINswzWzj2EL5dQ21QaBK3O/yL4tg3Dx/ba0H10htB7TlRXiCDLtN88nvXqVed+6ixpYtK9PuoAWEZR7PiqoNfydWICWw21yJ8EBUP6lZlVFj645WrLKz5zxlk3OcaJfLS18qLrTzxtoEL1Dd1TY5k85bXVVlcTV+zOmgh5QUQDIL3gPYw9wmCrITxDvmzcUtuaUTxEg6ELtd9QOmBdF3vYR33KajABFoBc4+ObcwJQLHaFYuqR6jcSAtBVy5vDx49wymxO5+Pw8Q6d1Lx4WAWnLv9bpFmBJKee5HCOkoIMefH4DIialctjKTzpWxnAMseSZCzY0SS2Re5jU/85c37xsRMp01bgMoTbJGZ82woZ8/vtWsS2kbq8CsLDGI3apjkwGvWPiM5jxylvNxKFSCn4s7VftOEtpQKsGWb68ZdQLY0vOVyvt9OELwuViir3x/jaz3Nbwg1av4Y4XMrVCfUkhgc2KT3OAfryKDAUbRUx608l1U+bP3D8dvpAKhhfsWM82V5tejt7/8fpODqe+PWSFYXbZK8MMD7iLCFRsfrGuINtTVvZJDoAOfqDRoKIxccA6WOGgxUf702B7Ld3YPnAL0cJNQrfN6PmV2RXBEbEYpH6kAM76foK1K9UbNrsAE4DlNEP8MrRx2l0UhFMSaJdJsLLHdMQoBX2Z3ObyGBBDKA3GwRNnyYdu9CIQTWYwsMSkYYRniY4lJ4b9jo65c4mCJSSHsQjGyxKQQ3gE/EOdgiRLEL6pOARJCSAEOxBbfWgGWOBECLFGQNRAutvfsc8nqsGCMpBKSjSdhifDAEjc0c0VNLTJCL/gDX7juY8MYxFobnZcl6n40LY6pYn9JVxGUfQ7/l8HmYL3j6PTMLFEgBI16UPfX4LFNHutE0ukZWO9IBYJCzMISQ8bYs61Bt1KgmnHURhMr7ka4lYfZWG+Lq9fJ1kbFYifHhyU0Qf7kuP3m5auNnhxZl+wyLf3yWBt9rI2mj8fa6CxY6tqoRgys16+NpqJADKx38troosDErLTQ2mgSWFhtNEnEXhtNC3Gw3qXEHw9z3cvuIc6uAAAAAElFTkSuQmCC"
+        />
+        <div>Megosztás</div>
+      </div> -->
     </div>
 
     <script>
+      const contextMenuId = "context-menu";
       document.onclick = hideMenu;
       document.oncontextmenu = rightClick;
+      createContextMenu();
 
       function hideMenu() {
-        document.getElementById("contextMenu").style.display = "none";
+        document.getElementById(contextMenuId).style.display = "none";
       }
 
       function rightClick(e) {
         e.preventDefault();
 
-        if (document.getElementById("contextMenu").style.display == "block")
+        if (document.getElementById(contextMenuId).style.display == "block")
           hideMenu();
         else {
-          var menu = document.getElementById("contextMenu");
+          const menu = document.getElementById(contextMenuId);
 
-          menu.style.display = "block";
+          menu.style.display = "flex";
           menu.style.left = e.pageX + "px";
           menu.style.top = e.pageY + "px";
         }
+      }
+
+      function createContextMenu() {
+        const contextMenuDiv = document.createElement("div");
+        contextMenuDiv.id = contextMenuId;
+        contextMenuDiv.style = 'display: none; flex-direction: row; position: absolute; text-align: center; background: rgba(255, 255, 255, 0.88); box-shadow: 0px 0px 40px rgba(168, 178, 184, 0.24); backdrop-filter: blur(4px); border-radius: 1px;';
+
+        [
+          {
+            title: "Kiemelés, jegyzet",
+            imgSrc:
+              "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAP/SURBVHgB7VlNUhpBFH7dM4WmsvEI5AQxJ4icQD2BuLBK3WRcJGoqlWFSlUTciIsUmCwkJ1BPoDlByA3IDVilhJJ+ea9nBgcCQ2N6kAVfadHT87p4r9/3froBmGOOOeZ4TAiYYWzv+ysCxCoKaAmFv6rHweWgzEwaQIrnJcgLUnx54FUTURVq5aAZT7gwY9h546+BlOeIsASsMGCd58kTRfrICyHP6bMQy8+UB3YPggoCvOIxKVzP3Xb3KpWgxc/sFVL+mob5yAs3PD8THoiUOyflV/hZIXhn5fenSRmmzc5h6RJQeCDES5q64flUA3YOP3iAuApZg7keUYbGxbMj/8cwMaJVa5Ay6R4IlV+BrIH8hzf0fZu1o/sATcLz/KV2GAckJhrxvBGFlARPIjTAEoSk3VZQoh0NswxipVYu7aWt6Sw6JySYp2HzrOxfxfNGBrDy1c/D3TopmO+Ask7DPNGFA9SrHpW+p63Z3Q9K5KEiy6NSheS7qQZxnCJjvrMyyZw+DFtv/WVU4EeP3qC8hCmBUyQpf8HKc4pcuFUvxinP3nIVrQEdIyViwT+eytwDJilyFHQ15rxPAV47KgXDZDI1gN0vwh3Mw5gUOQjN+7CVaHJ2GiWXGYW4hpD7f0K0g1w9TRPB9oFfJOU172ltM41q1j2g8/WirNCubegJgxSZRES5E64NJrDugc4T3a9s6BRJlKlOoDwbr/sdDnRhVnesGsC7d1+cdM6eqHaExSqMFwQVmKyxagA6Mtk36e5RFy4D9BUrihfK/S2TdVYNcBCKekDUiShgZIQuVmJ0sUqDNQOS9BEKnuVyqmBihEmxSoM1A5L04d3s3ErPxAguVjCmWKXBmgExfXgXNY8NjDAtVmmwUgd69KHMQzk/IE5fuSCvKZWzEZBbVIVOh55JJjKiQEau8HtefyfV+rdP5rxPwooHYvqgQH3tQco07oQqpHlCFysIPcby8EBYMaBHHxS9e5thRiRye1631FylH8D7JOx4IOzvwXWdvp18+oe4DUIrqNMkhtlGP1PQLrTxv5TX3wl20ATOJF1V2nrtnzp8ZBRioy3EGlm3FAvpcy/dJjiOW//y8d1vsAArBlAQ7rnIQYpF15HF3gvMRukkrBjAfKfM8kJIQV2kWOYWGDJUOglr7XRU/tdhypjamTgrmHrgcucg6OsOu0qdfj2mg/ojI90DQoRKh2kyn/yXUmR/5WiAVAMWct3N3skIoz4d1IN6lqyQakAlCFq9FkDwMU/fzc8UxgZxnxFhH3MCMwTjHzg8n24b2uE1iZ5AbFC+Nz6wTwrpuM/pTF2JzgmFUXIT/UKT/JUEpoRxBkxUyLhYhb28mFosJDvcOebIAH8BMj4LaMw41ikAAAAASUVORK5CYII=",
+          },
+          {
+            title: "Fordítás",
+            imgSrc:
+              "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAPNSURBVHgB7VjNTttAEJ5xkJLe6Bu4T9BU6qGHSoQnAJ6AcEAlXEgPVUIP2O4FUA9NT6HqAfcJ4A1IpR4rAU/A9g1yg1Tg7cx6N3VTQhzbcUDkk+z9sRPP7M58M7MAM8www4MGms5mw3OlBVsgYR4mCYQuBNJv77tvIQMU+LbZ9FoSoUHdEkweJUB89fJ1BX7+6HyHlJjjGwm/SisPUgbPDvY9ARPERsOxEa0LlFinoQcpYam7Nptxha81vQu+xvlN/xuYjanOQTrYMGVY8MAx1g5oc7FvmZeRoWjvOc8gJzyuHTArW9v+cESUtRxIqCPKeQR0JUj/YM9dg5yRzImlNAwiaPBUx0MbpoBYJlSvO/PM32ZMqy24pdUvW1BY0NNi2PuTRCwFeiXrlILPSV8oKb9xo02nqvqIPrfr752yeh+sU8gBcZ2YQ76KoLUG2T/iqsppDCR0pZRVYqOTuUAJbtOkDzkglgLkvFVaaVcNUC7TyldV9A6VEBxV1RxAhef43RHJmoCIyaWB8j7D4yQo3vUy23bvifUcQocVxcvgvNXyurVtb2FwDvIEKzAQjB4M0uZCfUyrnsgkEut6wpm48Azle1jfaLoOD80OCLpsXsUAgo55l1Lfzm3/wb5wVYSyeT7NeiLcAcTPWhCH+d5cTJks7OAfmLjwpuEtqcmE9UQSDNYTSoH27k5LQrBGFHlMFNjhCxQ9ymUW1gQwaitoGZ4HgRCcQwokKYgG0Xfigz3Pp8Y3Y71VJxAGMNoN95htj02F2uPi5c1aGrrkxQCdP3F/mLmOwlAn5q0qFoMXLKz6ECqbAxWkdndW0nK9hYVV06cFciAh7mShlud1WVgVhYm+OH2mlDl1Ic67a3Iojcqgr8VFrDighU4teB9IKQeo3fQpBbGpW7kq4VaSb0ylIqNMVZkMZ7BEvUpoTYtjI3cFos5LW+CT/R+qPtGifjYWclcg6rwQKmKbQRJnzlWBqPMGEstWoWDzdW0R24UY25kzS+ZiIeK8X/adaBD8RQGtAwmcOdcdiDrv4LOkzjwNFhLtXee/U2kdicU/pWoM5GpCo07skpzoPa6TuTsg4JZ6YhyUenA2LL9af+eUC5ZOn9Faln+/mZECXE9I+UnVE5AsMeuVQBDNLkZrCnWIULKOAEL2YvQLdwQ3bDLCRtOpErssyQRlpc6H+BLXN8HK14/eWTSdV0c1Up7p1wWzmCGCzBRIg7pDK/27cMgHxjxmSqXCyRwQCBovDqv27oUCBlyo83FlfyJG4XSvFGDQ0X1d+RPVIFnUHjPMMAJ/AOE/tpeHVV6yAAAAAElFTkSuQmCC",
+          },
+          {
+            title: "Wikipedia",
+            imgSrc:
+              "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAOsSURBVHgB7Vg7bttAEJ1ZIbDc6QjKDVwkXYLIJ7BzArN03FiuoqQhmSKRkYapbMCF5Rs4JzAFJIALA/ENrNxAna0g4mZ2ySWo5W9XTGEDfIAkitzPm523M7MEaNGiRYsWLZ4wUHy9G/l39NPXns1Oxu5zgzGM+687T1U/Bk8cmP2zP3IdBHZOlyFZtw2W2B95LgJ6wHlwcuwdFbU5GH0658Ad+ninY883HFp44Yp+BsTYOfniXqj7Kx44HfsTajAXDfffuwOwBefT+AKdosc0Zl+QT9pegCEOPrpbghN9Zhv30ffsM5bnwANJAZkLljg99kP6CWkReoULgJIEkBEhtZ2BKaLOoeoXBP48+yhnQHeDf2viBTFJzDWedGUyZPIeIk7AEJrXcpLLGRD4/ryJF+QCxLMNhkO3p+4LGXAOQgqzrIbrwLAjOZARkyKvsVISa3pBLAAkMrrfYHvpg4wMTMcaum6P2g/E9XKpFmYVrIxEEy9EDC7l4Ai76p4iUiSDMjwsZH8hofDsq39b1KY0DzTxwuaz6EL1FTIS4VkQIfK3NpuXQrpcvKo9U2pAEy9IGXGQKyZkRERiKTEMTMdIja7ZM5WZuIkXOI+kVDoADkASPqNoato/NRrBq2pXaUDWC+SGPbBAt0seIOM5yshTGkWKIEInlCQuHbW1kAqLVCI4ycBGiKMRn6j/NrE/EzpziSvXFgyIEPlJwsIyIiWlBYc56dhIPnWJS4dRNRrxpRwIOe5mk1MdkHd24ouS0qKIUE3iyrUHA8iBEC8FkYcuHpr0WVlJkBLcMelXl7h0GJ8HeLSM9wLHoZEXksKNMEtuOHVdVOisSlw6jA3IVpomXlBJKAmDoYmMTBKXDqsTmYrtdV5I6vc+JEkorX8qQrFp4tJhZYCxF7TCLQ3FFUHANHHpsD4Tm3hBL9yyFepik+U2s03i0mFtQJ0XshsxGwZVhUrWOTkSFokr1xfWQJUXlBT0jSgr1BgrBx3bxKVjLQPKvJBKgTKvLoVURhBXqCkBy8QF/8MAOaHyQia+p2SQXxZJATsQxO3yBx2b0LkyJjTAwQf/lzjnIgc/gmhC5wbx7qYvklhR7SOOiIs/7I5Y98jKAEmDHOBQ7pexZ/0eSqDRm7mIRzI8UsnsEnn1+m9WVrjFMsJY58iHgrwouZeMH8Ga6EAD3PyY3r549eY3yWhL+JJW8pq09fbm53Re3ufq+uXr7ZDaiTbXf4n82WezsqFFixYtWrRo8djwDw6OBWd58xvdAAAAAElFTkSuQmCC",
+          },
+          {
+            title: "Megosztás",
+            imgSrc:
+              "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAOvSURBVHgB7VhNUttQDJZsprBMT9AcAW6QnCDcgGTRKdBFk0UnFDrYniktaRdNFyV0WJDeAE5AOAH0BHVvwLLJJE+VnmOwU+ffsZsO30z88/4s6UlPXwSw5ED4R7BdtXKAuIWAOX7NShsS3CqkW1R02fjoXETNS10BFjyLaJzzY27MUJdI5U9rjhtsNCBFPN+31tEwbkCER7gjINswzWzj2EL5dQ21QaBK3O/yL4tg3Dx/ba0H10htB7TlRXiCDLtN88nvXqVed+6ixpYtK9PuoAWEZR7PiqoNfydWICWw21yJ8EBUP6lZlVFj645WrLKz5zxlk3OcaJfLS18qLrTzxtoEL1Dd1TY5k85bXVVlcTV+zOmgh5QUQDIL3gPYw9wmCrITxDvmzcUtuaUTxEg6ELtd9QOmBdF3vYR33KajABFoBc4+ObcwJQLHaFYuqR6jcSAtBVy5vDx49wymxO5+Pw8Q6d1Lx4WAWnLv9bpFmBJKee5HCOkoIMefH4DIialctjKTzpWxnAMseSZCzY0SS2Re5jU/85c37xsRMp01bgMoTbJGZ82woZ8/vtWsS2kbq8CsLDGI3apjkwGvWPiM5jxylvNxKFSCn4s7VftOEtpQKsGWb68ZdQLY0vOVyvt9OELwuViir3x/jaz3Nbwg1av4Y4XMrVCfUkhgc2KT3OAfryKDAUbRUx608l1U+bP3D8dvpAKhhfsWM82V5tejt7/8fpODqe+PWSFYXbZK8MMD7iLCFRsfrGuINtTVvZJDoAOfqDRoKIxccA6WOGgxUf702B7Ld3YPnAL0cJNQrfN6PmV2RXBEbEYpH6kAM76foK1K9UbNrsAE4DlNEP8MrRx2l0UhFMSaJdJsLLHdMQoBX2Z3ObyGBBDKA3GwRNnyYdu9CIQTWYwsMSkYYRniY4lJ4b9jo65c4mCJSSHsQjGyxKQQ3gE/EOdgiRLEL6pOARJCSAEOxBbfWgGWOBECLFGQNRAutvfsc8nqsGCMpBKSjSdhifDAEjc0c0VNLTJCL/gDX7juY8MYxFobnZcl6n40LY6pYn9JVxGUfQ7/l8HmYL3j6PTMLFEgBI16UPfX4LFNHutE0ukZWO9IBYJCzMISQ8bYs61Bt1KgmnHURhMr7ka4lYfZWG+Lq9fJ1kbFYifHhyU0Qf7kuP3m5auNnhxZl+wyLf3yWBt9rI2mj8fa6CxY6tqoRgys16+NpqJADKx38troosDErLTQ2mgSWFhtNEnEXhtNC3Gw3qXEHw9z3cvuIc6uAAAAAElFTkSuQmCC",
+          },
+        ].forEach(({ title, imgSrc }) => {
+          const actionDiv = document.createElement("div");
+          actionDiv.style = 'flex-basis: 100%; padding: 15px 5px 5px; color: #697881;';
+          const img = document.createElement("img");
+          img.height = 24;
+          img.width = 24;
+          img.src = imgSrc;
+          const titleDiv = document.createElement("div");
+          titleDiv.innerText = title;
+
+          actionDiv.appendChild(img);
+          actionDiv.appendChild(titleDiv);
+          contextMenuDiv.appendChild(actionDiv);
+        });
+
+        document.body.appendChild(contextMenuDiv);
       }
     </script>
   </body>

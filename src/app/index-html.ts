@@ -1,0 +1,98 @@
+export const WEBVIEW_SRC = `
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Webview :)</title>
+  </head>
+
+  <body>
+    <h1 style="text-align: center">Custom menu</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores natus a praesentium quasi cumque recusandae iure est sunt tempora quibusdam accusamus eaque ut quae molestias, aliquam autem error atque soluta reprehenderit ratione magni! Numquam aut magnam debitis iure natus nihil, consequuntur nisi ducimus enim voluptas vel maiores repellat ab ullam incidunt! Maxime aliquam quia doloribus laborum quibusdam. Minus itaque autem nulla sapiente sunt quasi dolor, ad voluptates repudiandae saepe neque accusantium adipisci atque aliquid numquam quas odit! Eos eligendi ducimus soluta? Dolorem deleniti at sunt repellat tenetur dolore alias id amet accusantium expedita consequuntur, animi atque, fugiat, incidunt ex iste?</p>
+  </body>
+  <script>
+  const contextMenuId = "context-menu";
+  document.onclick = hideContextMenu;
+  document.oncontextmenu = openContextMenu;
+
+  createContextMenu();
+
+  function openContextMenu(e) {
+    console.log(e);
+    e.preventDefault();
+    const menu = document.getElementById(contextMenuId);
+
+    if (isContextMenuOpen() && "" === getSelectionText()) {
+      hideContextMenu();
+    } else {
+      menu.style.display = "flex";
+      menu.style.left = menu.offsetWidth < window.innerWidth - e.pageX  ? e.pageX + "px" : window.innerWidth - menu.offsetWidth + "px";
+      menu.style.top = e.pageY - 15 - menu.offsetHeight + "px";
+    }
+  }
+
+  function isContextMenuOpen() {
+    const menu = document.getElementById(contextMenuId);
+    return menu.style.display === "flex";
+  }
+
+  function hideContextMenu() {
+    document.getElementById(contextMenuId).style.display = "none";
+  }
+
+  function getSelectionText() {
+    let text = "";
+    if (window.getSelection) {
+        text = window.getSelection().toString();
+    } else if (document.selection && document.selection.type !== "Control") {
+        text = document.selection.createRange().text;
+    }
+    return text;
+}
+
+  function createContextMenu() {
+    const contextMenuDiv = document.createElement("div");
+    contextMenuDiv.id = contextMenuId;
+    contextMenuDiv.style = 'display: none; flex-direction: row; position: absolute; text-align: center; background: rgba(255, 255, 255, 0.88); box-shadow: 0px 0px 40px rgba(168, 178, 184, 0.24); backdrop-filter: blur(4px); border-radius: 1px; user-select: none;';
+
+    [
+      {
+        title: "Kiemelés, jegyzet",
+        imgSrc:
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAP/SURBVHgB7VlNUhpBFH7dM4WmsvEI5AQxJ4icQD2BuLBK3WRcJGoqlWFSlUTciIsUmCwkJ1BPoDlByA3IDVilhJJ+ea9nBgcCQ2N6kAVfadHT87p4r9/3froBmGOOOeZ4TAiYYWzv+ysCxCoKaAmFv6rHweWgzEwaQIrnJcgLUnx54FUTURVq5aAZT7gwY9h546+BlOeIsASsMGCd58kTRfrICyHP6bMQy8+UB3YPggoCvOIxKVzP3Xb3KpWgxc/sFVL+mob5yAs3PD8THoiUOyflV/hZIXhn5fenSRmmzc5h6RJQeCDES5q64flUA3YOP3iAuApZg7keUYbGxbMj/8cwMaJVa5Ay6R4IlV+BrIH8hzf0fZu1o/sATcLz/KV2GAckJhrxvBGFlARPIjTAEoSk3VZQoh0NswxipVYu7aWt6Sw6JySYp2HzrOxfxfNGBrDy1c/D3TopmO+Ask7DPNGFA9SrHpW+p63Z3Q9K5KEiy6NSheS7qQZxnCJjvrMyyZw+DFtv/WVU4EeP3qC8hCmBUyQpf8HKc4pcuFUvxinP3nIVrQEdIyViwT+eytwDJilyFHQ15rxPAV47KgXDZDI1gN0vwh3Mw5gUOQjN+7CVaHJ2GiWXGYW4hpD7f0K0g1w9TRPB9oFfJOU172ltM41q1j2g8/WirNCubegJgxSZRES5E64NJrDugc4T3a9s6BRJlKlOoDwbr/sdDnRhVnesGsC7d1+cdM6eqHaExSqMFwQVmKyxagA6Mtk36e5RFy4D9BUrihfK/S2TdVYNcBCKekDUiShgZIQuVmJ0sUqDNQOS9BEKnuVyqmBihEmxSoM1A5L04d3s3ErPxAguVjCmWKXBmgExfXgXNY8NjDAtVmmwUgd69KHMQzk/IE5fuSCvKZWzEZBbVIVOh55JJjKiQEau8HtefyfV+rdP5rxPwooHYvqgQH3tQco07oQqpHlCFysIPcby8EBYMaBHHxS9e5thRiRye1631FylH8D7JOx4IOzvwXWdvp18+oe4DUIrqNMkhtlGP1PQLrTxv5TX3wl20ATOJF1V2nrtnzp8ZBRioy3EGlm3FAvpcy/dJjiOW//y8d1vsAArBlAQ7rnIQYpF15HF3gvMRukkrBjAfKfM8kJIQV2kWOYWGDJUOglr7XRU/tdhypjamTgrmHrgcucg6OsOu0qdfj2mg/ojI90DQoRKh2kyn/yXUmR/5WiAVAMWct3N3skIoz4d1IN6lqyQakAlCFq9FkDwMU/fzc8UxgZxnxFhH3MCMwTjHzg8n24b2uE1iZ5AbFC+Nz6wTwrpuM/pTF2JzgmFUXIT/UKT/JUEpoRxBkxUyLhYhb28mFosJDvcOebIAH8BMj4LaMw41ikAAAAASUVORK5CYII=",
+      },
+      {
+        title: "Fordítás",
+        imgSrc:
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAPNSURBVHgB7VjNTttAEJ5xkJLe6Bu4T9BU6qGHSoQnAJ6AcEAlXEgPVUIP2O4FUA9NT6HqAfcJ4A1IpR4rAU/A9g1yg1Tg7cx6N3VTQhzbcUDkk+z9sRPP7M58M7MAM8www4MGms5mw3OlBVsgYR4mCYQuBNJv77tvIQMU+LbZ9FoSoUHdEkweJUB89fJ1BX7+6HyHlJjjGwm/SisPUgbPDvY9ARPERsOxEa0LlFinoQcpYam7Nptxha81vQu+xvlN/xuYjanOQTrYMGVY8MAx1g5oc7FvmZeRoWjvOc8gJzyuHTArW9v+cESUtRxIqCPKeQR0JUj/YM9dg5yRzImlNAwiaPBUx0MbpoBYJlSvO/PM32ZMqy24pdUvW1BY0NNi2PuTRCwFeiXrlILPSV8oKb9xo02nqvqIPrfr752yeh+sU8gBcZ2YQ76KoLUG2T/iqsppDCR0pZRVYqOTuUAJbtOkDzkglgLkvFVaaVcNUC7TyldV9A6VEBxV1RxAhef43RHJmoCIyaWB8j7D4yQo3vUy23bvifUcQocVxcvgvNXyurVtb2FwDvIEKzAQjB4M0uZCfUyrnsgkEut6wpm48Azle1jfaLoOD80OCLpsXsUAgo55l1Lfzm3/wb5wVYSyeT7NeiLcAcTPWhCH+d5cTJks7OAfmLjwpuEtqcmE9UQSDNYTSoH27k5LQrBGFHlMFNjhCxQ9ymUW1gQwaitoGZ4HgRCcQwokKYgG0Xfigz3Pp8Y3Y71VJxAGMNoN95htj02F2uPi5c1aGrrkxQCdP3F/mLmOwlAn5q0qFoMXLKz6ECqbAxWkdndW0nK9hYVV06cFciAh7mShlud1WVgVhYm+OH2mlDl1Ic67a3Iojcqgr8VFrDighU4teB9IKQeo3fQpBbGpW7kq4VaSb0ylIqNMVZkMZ7BEvUpoTYtjI3cFos5LW+CT/R+qPtGifjYWclcg6rwQKmKbQRJnzlWBqPMGEstWoWDzdW0R24UY25kzS+ZiIeK8X/adaBD8RQGtAwmcOdcdiDrv4LOkzjwNFhLtXee/U2kdicU/pWoM5GpCo07skpzoPa6TuTsg4JZ6YhyUenA2LL9af+eUC5ZOn9Faln+/mZECXE9I+UnVE5AsMeuVQBDNLkZrCnWIULKOAEL2YvQLdwQ3bDLCRtOpErssyQRlpc6H+BLXN8HK14/eWTSdV0c1Up7p1wWzmCGCzBRIg7pDK/27cMgHxjxmSqXCyRwQCBovDqv27oUCBlyo83FlfyJG4XSvFGDQ0X1d+RPVIFnUHjPMMAJ/AOE/tpeHVV6yAAAAAElFTkSuQmCC",
+      },
+      {
+        title: "Wikipedia",
+        imgSrc:
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAOsSURBVHgB7Vg7bttAEJ1ZIbDc6QjKDVwkXYLIJ7BzArN03FiuoqQhmSKRkYapbMCF5Rs4JzAFJIALA/ENrNxAna0g4mZ2ySWo5W9XTGEDfIAkitzPm523M7MEaNGiRYsWLZ4wUHy9G/l39NPXns1Oxu5zgzGM+687T1U/Bk8cmP2zP3IdBHZOlyFZtw2W2B95LgJ6wHlwcuwdFbU5GH0658Ad+ninY883HFp44Yp+BsTYOfniXqj7Kx44HfsTajAXDfffuwOwBefT+AKdosc0Zl+QT9pegCEOPrpbghN9Zhv30ffsM5bnwANJAZkLljg99kP6CWkReoULgJIEkBEhtZ2BKaLOoeoXBP48+yhnQHeDf2viBTFJzDWedGUyZPIeIk7AEJrXcpLLGRD4/ryJF+QCxLMNhkO3p+4LGXAOQgqzrIbrwLAjOZARkyKvsVISa3pBLAAkMrrfYHvpg4wMTMcaum6P2g/E9XKpFmYVrIxEEy9EDC7l4Ai76p4iUiSDMjwsZH8hofDsq39b1KY0DzTxwuaz6EL1FTIS4VkQIfK3NpuXQrpcvKo9U2pAEy9IGXGQKyZkRERiKTEMTMdIja7ZM5WZuIkXOI+kVDoADkASPqNoato/NRrBq2pXaUDWC+SGPbBAt0seIOM5yshTGkWKIEInlCQuHbW1kAqLVCI4ycBGiKMRn6j/NrE/EzpziSvXFgyIEPlJwsIyIiWlBYc56dhIPnWJS4dRNRrxpRwIOe5mk1MdkHd24ouS0qKIUE3iyrUHA8iBEC8FkYcuHpr0WVlJkBLcMelXl7h0GJ8HeLSM9wLHoZEXksKNMEtuOHVdVOisSlw6jA3IVpomXlBJKAmDoYmMTBKXDqsTmYrtdV5I6vc+JEkorX8qQrFp4tJhZYCxF7TCLQ3FFUHANHHpsD4Tm3hBL9yyFepik+U2s03i0mFtQJ0XshsxGwZVhUrWOTkSFokr1xfWQJUXlBT0jSgr1BgrBx3bxKVjLQPKvJBKgTKvLoVURhBXqCkBy8QF/8MAOaHyQia+p2SQXxZJATsQxO3yBx2b0LkyJjTAwQf/lzjnIgc/gmhC5wbx7qYvklhR7SOOiIs/7I5Y98jKAEmDHOBQ7pexZ/0eSqDRm7mIRzI8UsnsEnn1+m9WVrjFMsJY58iHgrwouZeMH8Ga6EAD3PyY3r549eY3yWhL+JJW8pq09fbm53Re3ufq+uXr7ZDaiTbXf4n82WezsqFFixYtWrRo8djwDw6OBWd58xvdAAAAAElFTkSuQmCC",
+      },
+      {
+        title: "Megosztás",
+        imgSrc:
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAOvSURBVHgB7VhNUttQDJZsprBMT9AcAW6QnCDcgGTRKdBFk0UnFDrYniktaRdNFyV0WJDeAE5AOAH0BHVvwLLJJE+VnmOwU+ffsZsO30z88/4s6UlPXwSw5ED4R7BdtXKAuIWAOX7NShsS3CqkW1R02fjoXETNS10BFjyLaJzzY27MUJdI5U9rjhtsNCBFPN+31tEwbkCER7gjINswzWzj2EL5dQ21QaBK3O/yL4tg3Dx/ba0H10htB7TlRXiCDLtN88nvXqVed+6ixpYtK9PuoAWEZR7PiqoNfydWICWw21yJ8EBUP6lZlVFj645WrLKz5zxlk3OcaJfLS18qLrTzxtoEL1Dd1TY5k85bXVVlcTV+zOmgh5QUQDIL3gPYw9wmCrITxDvmzcUtuaUTxEg6ELtd9QOmBdF3vYR33KajABFoBc4+ObcwJQLHaFYuqR6jcSAtBVy5vDx49wymxO5+Pw8Q6d1Lx4WAWnLv9bpFmBJKee5HCOkoIMefH4DIialctjKTzpWxnAMseSZCzY0SS2Re5jU/85c37xsRMp01bgMoTbJGZ82woZ8/vtWsS2kbq8CsLDGI3apjkwGvWPiM5jxylvNxKFSCn4s7VftOEtpQKsGWb68ZdQLY0vOVyvt9OELwuViir3x/jaz3Nbwg1av4Y4XMrVCfUkhgc2KT3OAfryKDAUbRUx608l1U+bP3D8dvpAKhhfsWM82V5tejt7/8fpODqe+PWSFYXbZK8MMD7iLCFRsfrGuINtTVvZJDoAOfqDRoKIxccA6WOGgxUf702B7Ld3YPnAL0cJNQrfN6PmV2RXBEbEYpH6kAM76foK1K9UbNrsAE4DlNEP8MrRx2l0UhFMSaJdJsLLHdMQoBX2Z3ObyGBBDKA3GwRNnyYdu9CIQTWYwsMSkYYRniY4lJ4b9jo65c4mCJSSHsQjGyxKQQ3gE/EOdgiRLEL6pOARJCSAEOxBbfWgGWOBECLFGQNRAutvfsc8nqsGCMpBKSjSdhifDAEjc0c0VNLTJCL/gDX7juY8MYxFobnZcl6n40LY6pYn9JVxGUfQ7/l8HmYL3j6PTMLFEgBI16UPfX4LFNHutE0ukZWO9IBYJCzMISQ8bYs61Bt1KgmnHURhMr7ka4lYfZWG+Lq9fJ1kbFYifHhyU0Qf7kuP3m5auNnhxZl+wyLf3yWBt9rI2mj8fa6CxY6tqoRgys16+NpqJADKx38troosDErLTQ2mgSWFhtNEnEXhtNC3Gw3qXEHw9z3cvuIc6uAAAAAElFTkSuQmCC",
+      },
+    ].forEach(({ title, imgSrc }) => {
+      const actionDiv = document.createElement("div");
+      actionDiv.style = 'flex-basis: 100%; padding: 15px 5px 5px; color: #697881; font-size: 10px;';
+      const img = document.createElement("img");
+      img.height = 24;
+      img.width = 24;
+      img.src = imgSrc;
+      const titleDiv = document.createElement("div");
+      titleDiv.innerText = title;
+      titleDiv.style = "padding-top: 10px;";
+
+      actionDiv.appendChild(img);
+      actionDiv.appendChild(titleDiv);
+      contextMenuDiv.appendChild(actionDiv);
+    });
+
+    document.body.appendChild(contextMenuDiv);
+  }
+</script>
+</html>
+`;
